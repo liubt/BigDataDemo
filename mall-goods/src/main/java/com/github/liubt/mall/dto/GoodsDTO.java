@@ -1,5 +1,6 @@
 package com.github.liubt.mall.dto;
 
+import com.github.liubt.mall.model.Goods;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -8,6 +9,15 @@ import org.hibernate.validator.constraints.NotBlank;
 @Getter
 @Setter
 public class GoodsDTO {
+
+    public GoodsDTO() {
+    }
+
+    public GoodsDTO(Goods goods) {
+        this.id = goods.getId();
+        this.no = goods.getNo();
+        this.name = goods.getName();
+    }
 
     private Long id;
 

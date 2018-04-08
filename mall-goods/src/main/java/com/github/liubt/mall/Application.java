@@ -27,7 +27,7 @@ public class Application {
 
         final Environment env = context.getEnvironment();
         Application.log.info(
-                "Application '{}' is running as {}:{}!",
+                "Application '{}' is running as http://{}:{}!",
                 env.getProperty("spring.application.name"),
                 InetAddress.getLocalHost().getHostAddress(),
                 env.getProperty("server.port"));

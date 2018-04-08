@@ -28,11 +28,21 @@ public class GoodsController {
             return ResultDTO.fail(new GoodsDTO());
         }
 
-        GoodsDTO dto = new GoodsDTO();
-        dto.setId(goods.getId());
-        dto.setNo(goods.getNo());
-        dto.setName(goods.getName());
-
+        GoodsDTO dto = new GoodsDTO(goods);
         return ResultDTO.success(dto);
     }
+    
+    @RequestMapping(method = RequestMethod.POST)
+    public ResultDTO<GoodsDTO> newGoods(
+            @RequestParam String no, @RequestParam String name) {
+
+        Goods goods = new Goods();
+        goods.setNo(no);
+        goods.setName(name);
+        goodsRepository.save(goods);
+
+        GoodsDTO dto = new GoodsDTO(goods);
+        return ResultDTO.success(dto);
+    }
+
 }

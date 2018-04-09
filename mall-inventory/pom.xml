@@ -9,17 +9,16 @@
         <artifactId>parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    
-    <groupId>com.github.liubt.mall</groupId>
-    <artifactId>mall-goods</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
+    <groupId>com.github.liubt.mall</groupId>
+    <artifactId>mall-inventory</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    
     <properties>
-        <start-class>com.github.liubt.mall.goods.GoodsApplication</start-class>
-        <server.port>8010</server.port>
+        <start-class>com.github.liubt.mall.inventory.Application</start-class>
+        <server.port>8030</server.port>
         <server.contextpath></server.contextpath>
-        <logging.path>/var/log/goods</logging.path>
+        <logging.path>/var/log/inventory</logging.path>
     </properties>
 
     <dependencies>
@@ -38,11 +37,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
 
@@ -66,7 +61,7 @@
 
                 <!-- datasource configuration -->
                 <datasource.driver>com.mysql.jdbc.Driver</datasource.driver>
-                <datasource.url>jdbc:mysql://127.0.0.1/goods?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true</datasource.url>
+                <datasource.url>jdbc:mysql://127.0.0.1/inventory?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true</datasource.url>
                 <datasource.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</datasource.dialect>
                 <datasource.username>root</datasource.username>
                 <datasource.password>rd123456</datasource.password>
@@ -76,4 +71,5 @@
 
         </profile>
     </profiles>
+    
 </project>

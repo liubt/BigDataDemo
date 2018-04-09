@@ -1,6 +1,6 @@
-package com.github.liubt.mall.dto;
+package com.github.liubt.mall.goods.dto;
 
-import com.github.liubt.mall.model.Goods;
+import com.github.liubt.mall.goods.model.Goods;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;

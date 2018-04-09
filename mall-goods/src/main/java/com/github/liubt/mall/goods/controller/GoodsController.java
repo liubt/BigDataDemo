@@ -1,16 +1,12 @@
-package com.github.liubt.mall.controller;
+package com.github.liubt.mall.goods.controller;
 
-import com.github.liubt.mall.dto.GoodsDTO;
-import com.github.liubt.mall.dto.ResultDTO;
-import com.github.liubt.mall.model.Goods;
-import com.github.liubt.mall.repository.GoodsRepository;
+import com.github.liubt.mall.goods.dto.GoodsDTO;
+import com.github.liubt.mall.goods.dto.ResultDTO;
+import com.github.liubt.mall.goods.repository.GoodsRepository;
+import com.github.liubt.mall.goods.model.Goods;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 
 @Slf4j
 @RestController

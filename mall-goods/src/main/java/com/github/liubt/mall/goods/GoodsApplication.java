@@ -1,4 +1,4 @@
-package com.github.liubt.mall;
+package com.github.liubt.mall.goods;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,19 +14,19 @@ import java.util.HashMap;
 
 @SpringBootApplication
 @EnableCaching
-public class Application {
+public class GoodsApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
+    private static final Logger log = LoggerFactory.getLogger(GoodsApplication.class);
 
     public static void main(final String[] args) throws UnknownHostException {
         final HashMap<String, Object> props = new HashMap<>();
         final ConfigurableApplicationContext context = new SpringApplicationBuilder()
                 .properties(props)
-                .sources(Application.class)
+                .sources(GoodsApplication.class)
                 .run(args);
 
         final Environment env = context.getEnvironment();
-        Application.log.info(
+        GoodsApplication.log.info(
                 "Application '{}' is running as http://{}:{}!",
                 env.getProperty("spring.application.name"),
                 InetAddress.getLocalHost().getHostAddress(),

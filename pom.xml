@@ -22,6 +22,8 @@
 
     <modules>
         <module>mall-goods</module>
+        <module>mall-order</module>
+        <module>mall-inventory</module>
     </modules>
 
     <dependencies>

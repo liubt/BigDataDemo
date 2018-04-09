@@ -1,4 +1,4 @@
-package com.github.liubt.mall.dto;
+package com.github.liubt.mall.goods.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package com.github.liubt.mall.model;
+package com.github.liubt.mall.goods.model;
 
 import lombok.Getter;
 import lombok.Setter;

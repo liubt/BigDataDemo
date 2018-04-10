@@ -39,6 +39,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>io.github.rhwayfun</groupId>
+            <artifactId>spring-boot-rocketmq-starter</artifactId>
+            <version>0.0.3.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -28,8 +28,9 @@ RUN chmod +x bin/mqbroker
 
 # 改小默认内存
 COPY runbroker.sh /opt/rocketmq-4.1.0-incubating/bin/
+COPY broker.conf /opt/rocketmq-4.1.0-incubating/conf/
 
-CMD cd ${ROCKETMQ_HOME}/bin && export JAVA_OPT=" -Duser.home=/opt" && sh mqbroker -n namesrv:9876
+CMD cd ${ROCKETMQ_HOME}/bin && export JAVA_OPT=" -Duser.home=/opt" && sh mqbroker -n namesrv:9876 -c /opt/rocketmq-4.1.0-incubating/conf/broker.conf
 
 
 EXPOSE 10909 10911

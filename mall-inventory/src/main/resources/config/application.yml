@@ -54,6 +54,9 @@ spring:
             min-idle: 0
         # 连接超时时间（毫秒）
         timeout: 0
+    rocketmq:
+        nameServer: localhost:9876
+        producer-group-name: order-producer-group
 
 # LOG相关设置
 logging:

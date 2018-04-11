@@ -1,6 +1,7 @@
 .idea
 *.iml
 */target
+mall-env/rocketMq/*/store
 
 # Compiled class file
 *.class

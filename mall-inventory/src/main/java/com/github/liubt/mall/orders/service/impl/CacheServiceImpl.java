@@ -30,13 +30,23 @@ public class CacheServiceImpl implements CacheService {
     public long stockIn(String goodsNo, long count) {
         synchronized (goodsNo) {
             if (redisTemplate.hasKey(goodsNo)) {
-                redisTemplate.opsForValue().set(goodsNo, count);
-                return count;
-            } else {
                 long newValue = (long)redisTemplate.opsForValue().get(goodsNo) + count;
                 redisTemplate.opsForValue().set(goodsNo, newValue);
                 return newValue;
+            } else {
+                redisTemplate.opsForValue().set(goodsNo, count);
+                return count;
             }
+        }
+    }
+
+    @Override
+    public long stockCount(String goodsNo) {
+        Long currentValue = (Long)redisTemplate.opsForValue().get(goodsNo);
+        if(currentValue == null) {
+            return -1;
+        } else {
+            return currentValue;
         }
     }
 }

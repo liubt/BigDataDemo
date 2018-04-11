@@ -1,9 +1,7 @@
-package com.github.liubt.mall.orders.controller;
+package com.github.liubt.mall.orders.contorller;
 
 import com.github.liubt.mall.orders.constants.Constants;
-import com.github.liubt.mall.orders.model.GoodsOrder;
 import com.github.liubt.mall.orders.mq.InventoryChangeMqContent;
-import com.github.liubt.mall.orders.repository.GoodsOrderRepository;
 import com.github.liubt.mall.orders.service.CacheService;
 import io.github.rhwayfun.springboot.rocketmq.starter.common.DefaultRocketMqProducer;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-
 @Slf4j
 @RestController
-@RequestMapping("/inventory")
-public class InventoryController {
+@RequestMapping("/orders")
+public class OrderController {
 
     @Autowired
     private CacheService cacheService;
@@ -27,9 +23,8 @@ public class InventoryController {
     private DefaultRocketMqProducer producer;
 
 
-    @RequestMapping(value = "/out", method = RequestMethod.GET)
-    public boolean stockOut(
-            @RequestParam String orderNo,
+    @RequestMapping(method = RequestMethod.POST)
+    public boolean create(
             @RequestParam String goodsNo,
             @RequestParam int count) {
 

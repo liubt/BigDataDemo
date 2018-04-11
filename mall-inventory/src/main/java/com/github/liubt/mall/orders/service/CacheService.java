@@ -17,4 +17,12 @@ public interface CacheService {
      * @param count
      */
     long stockIn(String goodsNo, long count);
+
+    /**
+     * 查询库存量
+     * 
+     * @param goodsNo
+     * @return
+     */
+    long stockCount(String goodsNo);
 }

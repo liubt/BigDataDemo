@@ -1,6 +1,7 @@
 package com.github.liubt.mall.orders.mq;
 
 import com.github.liubt.mall.orders.constants.Constants;
+import com.github.liubt.mall.orders.enums.OrderStatusEnum;
 import com.github.liubt.mall.orders.model.GoodsOrder;
 import com.github.liubt.mall.orders.repository.GoodsOrderRepository;
 import io.github.rhwayfun.springboot.rocketmq.starter.common.AbstractRocketMqConsumer;
@@ -8,10 +9,7 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class InventoryChangeMqConsumer
@@ -49,11 +47,17 @@ public class InventoryChangeMqConsumer
     }
 
     private void stockOut(InventoryChangeMqContent content) {
-        // 写数据库
+        // 消息防止重复
+        if(goodsOrderRepository.countByOrderNo(content.getOrderNo()) > 0) {
+            return;
+        }
+
         GoodsOrder order = new GoodsOrder();
         order.setOrderNo(content.getOrderNo());
         order.setGoodsNo(content.getGoodsNo());
         order.setCount(content.getCount());
+        order.setStatus(OrderStatusEnum.UNCONFIRMED);
+        order.setStatusUpdateTime(new Date());
         goodsOrderRepository.save(order);
     }
 

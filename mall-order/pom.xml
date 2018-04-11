@@ -42,9 +42,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson</artifactId>
-            <version>3.6.4</version>
+            <groupId>io.github.rhwayfun</groupId>
+            <artifactId>spring-boot-rocketmq-starter</artifactId>
+            <version>0.0.3.RELEASE</version>
         </dependency>
     </dependencies>
 

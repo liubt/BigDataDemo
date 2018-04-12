@@ -17,7 +17,7 @@
 
     <properties>
         <start-class>com.github.liubt.mall.order.Application</start-class>
-        <server.port>8020</server.port>
+        <server.port>8761</server.port>
         <server.contextpath></server.contextpath>
         <logging.path>/var/log/orders</logging.path>
     </properties>
@@ -42,11 +42,26 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>io.github.rhwayfun</groupId>
             <artifactId>spring-boot-rocketmq-starter</artifactId>
             <version>0.0.3.RELEASE</version>
         </dependency>
     </dependencies>
+    
 
     <build>
         <plugins>

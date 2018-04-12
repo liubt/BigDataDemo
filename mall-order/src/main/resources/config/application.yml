@@ -65,6 +65,9 @@ spring:
             fetchRegistry: false
         serviceUrl:
             defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    feign:
+        hystrix:
+            enabled: true
 
 # LOG相关设置
 logging:

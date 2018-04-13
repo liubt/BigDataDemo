@@ -47,7 +47,7 @@ order服务调用时，只操作缓存。缓存更新成功后，通过RocketMQ�
     }
     
 ## 熔断
-没有详细测试。现在的场景库存是必须服务，没法降级。
+现在的场景认为扣库存是必须，没法降级，熔断后业务失败。
 
 `@FeignClient(serviceId = "inventory", fallback = InventoryFallbackServiceImpl.class)`
 

@@ -29,12 +29,15 @@ public class OrderController {
             return "流量限制";
         }
 
-        GoodsOrder goodsOrder = orderService.create(goodsNo, count);
-        if(goodsOrder == null) {
-            return "失败";
-        } else {
-            return "成功。订单号：" + goodsOrder.getOrderNo();
+        for(int i=0;i<20;i++) {
+            GoodsOrder goodsOrder = orderService.create(goodsNo, count);
         }
+        return "1";
+//        if(goodsOrder == null) {
+//            return "失败";
+//        } else {
+//            return "成功。订单号：" + goodsOrder.getOrderNo();
+//        }
     }
 
 }

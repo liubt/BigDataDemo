@@ -16,17 +16,6 @@ spring:
         serialization.write-dates-as-timestamps: true
         # json中遇到无效变量是否报错
         deserialization.FAIL_ON_UNKNOWN_PROPERTIES: off
-     # 数据库相关设置
-    datasource:
-        driver-class-name: @datasource.driver@
-        url: @datasource.url@
-        username: @datasource.username@
-        password: @datasource.password@
-        test-while-idle: true
-        max-wait-millis: 30000
-        validation-query: 'SELECT 1'
-        time-between-eviction-runs-millis: 20000
-        min-evictable-idle-time-millis: 28700
     # JPA相关设置
     jpa:
         database-platform: @datasource.dialect@
@@ -72,3 +61,20 @@ spring:
 # LOG相关设置
 logging:
     path: @logging.path@
+
+sharding.jdbc:
+    datasource:
+        names: ds
+        ds:
+            type: org.apache.commons.dbcp.BasicDataSource
+            driver-class-name: @datasource.driver@
+            url: @datasource.url@
+            username: @datasource.username@
+            password: @datasource.password@
+    config.sharding.tables:
+        goods_order:
+            actual-data-nodes: ds.goods_order_${0..2}
+            table-strategy.inline:
+                sharding-column: id
+                algorithm-expression: goods_order_${id % 3}
+            key-generator-column-name: id
